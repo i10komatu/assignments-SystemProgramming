@@ -1,6 +1,6 @@
 CFLAGS = -g -DDEBUG
 
-all: redirect server
+all: redirect redirect_epoll server
 
 redirect: redirect.o netlib.o
 	$(CC) $(CFLAGS) $(LDFLAGS) -o redirect redirect.o netlib.o

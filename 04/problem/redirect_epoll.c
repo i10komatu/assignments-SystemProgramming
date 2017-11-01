@@ -82,12 +82,13 @@ static int do_redirect(int in1, int out1, int in2, int out2)
 			for (int j = 0; j < 2; j++) {
 				if (events[i].data.fd == in[j]) {
 					if ((bytes = copy(in[j], out[j])) <= 0) {
-						break;
+						goto end;
 					}
 				}
 			}
 		}
 	}
+end:
 	return bytes < 0;  /* bytesが0なら0を，負なら1を返す */
 }
 
